@@ -17,11 +17,19 @@ function format_pos(pos, length)
     return (format_time(parseInt(pos)) + "/" + format_time(parseInt(length)));
 }
 
+fname = '';
+
 function update_datas()
 {
     $.getJSON("status.php", function(data) {
 	fname = data.information.category[0].info;
-	$("#progress-label").html("<a href='/MP3/" + encodeURIComponent(fname) + "'>" + fname + "</a>");
+	vidid = data.vidid;
+	vidlink = '';
+	if (vidid != undefined)
+	{
+	    vidlink = '<a href="https://www.youtube.com/watch?v='+ vidid + '&t=' + data.time + 's"><img src="yt.png" height="32px"></a>';
+	}
+	$("#progress-label").html("<a href='/MP3/" + encodeURIComponent(fname) + "'>" + fname + "</a> " + vidlink);
 
 	pos = parseFloat(data.position).toFixed(2) * 100;
 	$("#position").attr("aria-valuenow", pos);
@@ -34,6 +42,7 @@ function update_datas()
 	    $("#playpause").text("Pause");
 	else
 	    $("#playpause").text("Play");
+
     });
 }
 
