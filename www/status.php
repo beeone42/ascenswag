@@ -14,6 +14,10 @@ if (preg_match('/.*-([A-Za-z0-9_-]{11})\.aac/', $fname, $regs))
 {
 	$xml->vidid = $regs[1];
 }
+if (preg_match('/.*-([A-Za-z0-9_-]{11})\.mp3/', $fname, $regs))
+{
+	$xml->vidid = $regs[1];
+}
 
 echo json_encode($xml);
 
