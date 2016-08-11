@@ -15,3 +15,7 @@ Ajouter dans /etc/rc.local
 /home/pi/volume-boot.sh
 
 /usr/bin/sudo -u pi /home/pi/play.sh > /dev/null &
+
+
+
+![screenshot](https://cloud.githubusercontent.com/assets/11945268/17586535/ac45769c-5fc2-11e6-90de-bc36e35a115d.png "ascenswag screenshot")
